@@ -5,7 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="gameController">
     <div class="character">
         <span class="characterName">Link</span>
         <span class="characterHealth">100/100</span>
@@ -16,18 +16,19 @@
         <span style="font-size:80px;">vs</span>
     </div>
     <div class="character">
-        <span class="characterName">Ganandorf</span>
-        <span class="characterHealth">120/120</span>
+        <span class="characterName">{{mob.name}}</span>
+        <span class="characterHealth">{{mob.currentHealth}}/{{mob.totalHealth}}</span>
         <br/>
-        <img src="img/Ganandorf.jpg" title="Link" class="characterImg" />
+        <img ng-src="{{mob.imageUrl}}" title="Mob" class="characterImg" />
     </div>
     <div style="float:left;margin:10px;width:300px">
         <textarea disabled="true" style="width:500px;height:535px;"></textarea>
     </div>
     <div style="clear:both;padding-left:420px">
-        <button style="font-size:60px">Attack!</button>
+        <button style="font-size:60px" ng-click="attack()">Attack!</button>
     </div>
     <script src="lib/angular/angular.js"></script>
     <script src="js/gameModule.js"></script>
+    <script src="js/gameController.js"></script>
 </body>
 </html>
